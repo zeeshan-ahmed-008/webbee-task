@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\EventsController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/events', [EventsController::class, 'getEventsWithWorkshops']);
+Route::get('/futureevents', [EventsController::class, 'getFutureEventsWithWorkshops']);
+Route::get('/warmupevents', [EventsController::class, 'getWarmupEvents']);
+Route::get('/menu', [MenuController::class, 'getMenuItems']);
